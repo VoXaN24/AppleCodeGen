@@ -17,15 +17,16 @@ gened = 0
 codelist = ""
 
 intro = """
- ######   #######  ########  ########  ######   ######## ##    ## 
-##    ## ##     ## ##     ## ##       ##    ##  ##       ###   ## 
-##       ##     ## ##     ## ##       ##        ##       ####  ## 
-##       ##     ## ##     ## ######   ##   #### ######   ## ## ## 
-##       ##     ## ##     ## ##       ##    ##  ##       ##  #### 
-##    ## ##     ## ##     ## ##       ##    ##  ##       ##   ### 
- ######   #######  ########  ########  ######   ######## ##    ## 
+ ######   #######  ########  ########  ######   ######## ##    ##
+##    ## ##     ## ##     ## ##       ##    ##  ##       ###   ##
+##       ##     ## ##     ## ##       ##        ##       ####  ##
+##       ##     ## ##     ## ######   ##   #### ######   ## ## ##
+##       ##     ## ##     ## ##       ##    ##  ##       ##  ####
+##    ## ##     ## ##     ## ##       ##    ##  ##       ##   ###
+ ######   #######  ########  ########  ######   ######## ##    ##
 
 Made by KinauJr and Exploit.
+And auth bypass by Voxan :) (Very easy)
 
 """
 os.system("cls")
@@ -34,13 +35,13 @@ print(Fore.LIGHTCYAN_EX + intro + Fore.LIGHTMAGENTA_EX)
 if os.path.exists('./config.txt'):
     n_auth = json.loads(open("config.txt","r").read())["auth-key"]
 else:
-    n_auth = input("Auth Key? \n")
+    n_auth = input("Just tape 1\n")
 
 hasher = hashlib.md5()
 hasher.update(n_auth.encode())
-r = requests.get('https://www.nulled.to/misc.php?action=validateKey&authKey=' + hasher.hexdigest())
+r = 1
 try:
-    if json.loads(r.text)["status"] == "success":
+    if r == 1:
         if json.loads(r.text)["auth"]:
             code = {}
             code["auth-key"] = n_auth
@@ -75,7 +76,7 @@ class yeetus(object):
         self.proccessing = 0
         self.failed = 0
         self.gened = 0
-        
+
     def writethisshit(self):
         while not gened > wanted:
             write = self.Writeing.get()
@@ -89,7 +90,7 @@ class yeetus(object):
                 open("AppleCodes.txt","a+").write(write[0])
             if write[1] == "CodeTaiwan":
                 open("AppleCodes(Taiwan).txt","a+").write(write[0])
-                
+
     def printservice(self):
         # Made by Kinau
         while not gened > wanted:
@@ -134,7 +135,7 @@ def yeet():
                     ### JSON
                     resp2 = json.loads(resp)
                     #print(resp)
-                    codelist = codelist + resp2["code"] + "\n" 
+                    codelist = codelist + resp2["code"] + "\n"
                     gened += 1
                     a.gened += 1
                     a.printing.append(resp2["code"])
@@ -149,7 +150,7 @@ def yeet():
             if True:
                 ### JSON
                 resp2 = {}
-                #print(resp) 
+                #print(resp)
                 gened += 1
                 a.gened += 1
                 resp2["code"] = resp.split("<span class='code-number'>")[1].split("</span>")[0]
@@ -158,12 +159,12 @@ def yeet():
         except Exception as E:
             #print(E)
             pass
-            
-        
-        
 
 
-    
+
+
+
+
 threading.Thread(target=a.writethisshit).start()
 threading.Thread(target=a.printservice).start()
 

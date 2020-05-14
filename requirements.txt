@@ -1,0 +1,5 @@
+hashlib
+requests
+bs4
+colorama
+flask
